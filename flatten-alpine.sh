@@ -38,5 +38,5 @@ docker import --change "CMD [\"/usr/local/bin/irb\"]" \
 --change "ENV PATH=/usr/local/bundle/bin:/usr/local/bundle/gems/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
 latest.tar ruby-alpine:flat
 # delete exported tar file
-#echo 'deleting image'
-#rm latest.tar
+echo 'deleting image'
+rm latest.tar
