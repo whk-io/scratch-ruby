@@ -1,8 +1,8 @@
 FROM ruby:2.6.5-slim-buster as ruby
 RUN apt-get update -y && apt-get install -y build-essential libsqlite3-dev
-COPY Gemfile /app/Gemfile
+#COPY Gemfile /app/Gemfile
 WORKDIR /app
-RUN gem install bundle && bundle install
+#RUN gem install bundle && bundle install
 RUN ldd /usr/local/bin/ruby
 
 FROM scratch
@@ -23,23 +23,23 @@ COPY --from=ruby /usr/lib/x86_64-linux-gnu/libgmp* /usr/lib/x86_64-linux-gnu/
 COPY --from=ruby /usr/local/lib/ /usr/local/lib
 COPY --from=ruby /usr/local/bin/ /usr/local/bin
 
-COPY --from=ruby /usr/local/bundle /usr/local/bundle
+#COPY --from=ruby /usr/local/bundle /usr/local/bundle
 #COPY --from=ruby /usr/local/bundle/ruby /usr/local/bundle/ruby
-COPY --from=ruby /usr/local/bundle/extensions /usr/local/bundle/extensions
+#COPY --from=ruby /usr/local/bundle/extensions /usr/local/bundle/extensions
 
-COPY --from=ruby /usr/include/sqlite3.h /usr/include/sqlite3.h
-COPY --from=ruby /usr/include/sqlite3ext.h /usr/include/sqlite3ext.h
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.a /usr/lib/x86_64-linux-gnu/libsqlite3.a
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.la /usr/lib/x86_64-linux-gnu/libsqlite3.la
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.so /usr/lib/x86_64-linux-gnu/libsqlite3.so
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.so.0 /usr/lib/x86_64-linux-gnu/libsqlite3.so.0
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6 /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/pkgconfig/sqlite3.pc /usr/lib/x86_64-linux-gnu/pkgconfig/sqlite3.pc
+# COPY --from=ruby /usr/include/sqlite3.h /usr/include/sqlite3.h
+# COPY --from=ruby /usr/include/sqlite3ext.h /usr/include/sqlite3ext.h
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.a /usr/lib/x86_64-linux-gnu/libsqlite3.a
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.la /usr/lib/x86_64-linux-gnu/libsqlite3.la
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.so /usr/lib/x86_64-linux-gnu/libsqlite3.so
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.so.0 /usr/lib/x86_64-linux-gnu/libsqlite3.so.0
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6 /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/pkgconfig/sqlite3.pc /usr/lib/x86_64-linux-gnu/pkgconfig/sqlite3.pc
 
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.a /usr/lib/x86_64-linux-gnu/libffi.a
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.so /usr/lib/x86_64-linux-gnu/libffi.so
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.so.6 /usr/lib/x86_64-linux-gnu/libffi.so.6
-COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4 /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.a /usr/lib/x86_64-linux-gnu/libffi.a
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.so /usr/lib/x86_64-linux-gnu/libffi.so
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.so.6 /usr/lib/x86_64-linux-gnu/libffi.so.6
+# COPY --from=ruby /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4 /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
 
 ENV TERM=dumb
 ENV HOSTNAME=distroless_ruby
