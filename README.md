@@ -11,3 +11,9 @@ To Build:
 ``` sh
 make
 ```
+
+To Build Alpine comparison:
+
+``` sh
+make alpine
+```
