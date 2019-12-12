@@ -6,6 +6,8 @@ Multistage build for reducing a portable Ruby MRI down to the smallest and most 
 
 Current Size: 40.7MB
 
+![Images Sizes](img/image-sizes.png "Images Sizes")
+
 To Build:
 
 ``` sh
