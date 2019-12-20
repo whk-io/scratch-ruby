@@ -1,6 +1,6 @@
 build:
 	docker build -t scratch-ruby .
-	#./flatten.sh
+	./flatten.sh
 
 irb:
 	docker run -it scratch-ruby:flat irb

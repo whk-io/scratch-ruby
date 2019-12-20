@@ -19,9 +19,7 @@ echo 'reset id variable'
 DockerID=''
 # import exported image as single layer
 echo 'importing image'
-# docker import --change "ENTRYPOINT [\"/usr/local/bin/irb\"]" latest.tar scratch-ruby:flat
-# docker import --change "ENTRYPOINT [\"/usr/local/bin/ruby\", \"/app/bin/rails\", \"server\", \"--binding\", \"0.0.0.0\", \"--port\", \"3000\"]" \
-docker import --change "CMD [\"/usr/local/bin/irb\"]" \
+docker import --change "CMD [\"/usr/local/bin/ruby\", \"/app/scratch_helper.rb\"]" \
 --change "WORKDIR /app" \
 --change "ENV TERM=dumb" \
 --change "ENV HOSTNAME=scratch_ruby" \

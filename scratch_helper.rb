@@ -6,7 +6,10 @@ system "clear"
 container_files=[]
 
 # fetch from ENV or you can set the path to your binary
-ruby_path = ENV["PATH"].split(':')[0] + "/ruby"
+# rbenv -> ruby_path = ENV["PATH"].split(':')[0] + "/ruby"
+# FROM ruby:2.6.5-slim-buster as ruby -> ruby_path = "/usr/local/bin/ruby"
+
+ruby_path = "/usr/local/bin/ruby"
 
 Open3.popen3("sleep 1; ldd #{ruby_path}") do |stdout, stderr, status, thread|
   while line=stderr.gets do
