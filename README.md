@@ -22,9 +22,3 @@ To run IRB:
 ``` sh
 make irb
 ```
-
-To Build Alpine comparison:
-
-``` sh
-make alpine
-```
