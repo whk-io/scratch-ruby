@@ -1,16 +1,25 @@
 FROM scratch as mri_deploy
 
+RUN mkdir /app
+
 ENV TERM=dumb
 ENV HOSTNAME=scratch_ruby
 ENV RUBY_DOWNLOAD_SHA256=a13ed141a1c18eb967aac1e33f4d6ad5f21be1ac543c344e0d6feeee54af8e28
 ENV RUBY_VERSION=3.0.0
 ENV PWD=/app
-ENV BUNDLE_APP_CONFIG=/usr/local/bundle
+ENV BUNDLE_APP_CONFIG=/usr/local/ruby/bin/bundle
 ENV RUBY_MAJOR=3.0
-ENV HOME=/root
+ENV HOME=/app
 ENV BUNDLE_SILENCE_ROOT_WARNING=1
-ENV GEM_HOME=/usr/local/bundle
+ENV GEM_HOME=/usr/local/ruby/bin/bundle
 ENV SHLVL=1
-ENV BUNDLE_PATH=/usr/local/bundle
-ENV PATH=/usr/local/bundle/bin:/usr/local/bundle/gems/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV BUNDLE_PATH=/usr/local/ruby/bin/bundle
+ENV PATH=
+/usr/local/bundle/bin:
+/usr/local/bundle/gems/bin:
+/usr/local/sbin:
+/usr/local/bin:
+/usr/sbin:
+/usr/bin:
+/sbin:/bin
 WORKDIR /app

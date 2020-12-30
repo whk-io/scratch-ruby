@@ -1,12 +1,14 @@
 # scratch-ruby
 
-Source Image: ruby:2.6.5-slim-buster
+Updated for Ruby 3.0.0
+
+Source Image: debian:10.7-slim
 
 Multistage build for reducing a portable Ruby MRI down to the smallest and most secure possible container.
 
-Current Size: 40.7MB
+Current Size: XX.XMB
 
-![Images Sizes](img/image-sizes.png "Images Sizes")
+![Images Sizes](img/image-sizes-outdated.png "Images Sizes")
 
 To Build:
 
