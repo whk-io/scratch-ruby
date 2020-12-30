@@ -1,0 +1,27 @@
+FROM debian:10.7-slim as mri_build
+WORKDIR /opt
+ENV DEBIAN_FRONTEND="noninteractive"
+RUN apt-get update -y && \
+apt install -y \
+autoconf \
+bison \
+build-essential \
+curl \
+git \
+libffi-dev \
+libgdbm-dev \
+libncurses5-dev \
+libreadline-dev \
+libssl-dev \
+libyaml-dev \
+zlib1g-dev \
+wget && \
+wget https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.gz && \
+tar -xzvf ruby-3.0.0.tar.gz
+WORKDIR /opt/ruby-3.0.0
+RUN autoconf -f && \
+./configure --prefix=/usr/local/ruby --enable-shared && \
+make clean && \
+make && \
+make install && \
+make clean
