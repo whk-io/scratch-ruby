@@ -17,10 +17,10 @@ FROM scratch
 ENV TERM=dumb
 ENV HOSTNAME=scratch_ruby
 ENV RUBY_DOWNLOAD_SHA256=d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62
-ENV RUBY_VERSION=2.6.5
+ENV RUBY_VERSION=3.0.0
 ENV PWD=/app
 ENV BUNDLE_APP_CONFIG=/usr/local/bundle
-ENV RUBY_MAJOR=2.6
+ENV RUBY_MAJOR=3.0
 ENV HOME=/root
 ENV BUNDLE_SILENCE_ROOT_WARNING=1
 ENV GEM_HOME=/usr/local/bundle
@@ -42,7 +42,7 @@ COPY --from=ruby /usr/local/lib/ /usr/local/lib
 COPY --from=ruby /usr/local/bin/ /usr/local/bin
 
 # -- from scratch_helper.rb
-COPY --from=ruby /usr/local/lib/libruby.so.2.6 /usr/local/lib/libruby.so.2.6
+COPY --from=ruby /usr/local/lib/libruby.so.2.6 /usr/local/lib/libruby.so.3.0
 COPY --from=ruby /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/libm.so.6
 COPY --from=ruby /lib/x86_64-linux-gnu/libc.so.6 /lib/x86_64-linux-gnu/libc.so.6
 COPY --from=ruby /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1
