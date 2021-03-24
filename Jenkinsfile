@@ -3,7 +3,7 @@ pipeline {
     registry = "localhost/scratch-ruby:3.0.0-build-"
     //registryCredential = 'dockerhub'
   }
-  agent any  
+  agent { label 'linux' }
   stages {
     stage('Building image') {
       steps{
