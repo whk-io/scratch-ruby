@@ -1,6 +1,6 @@
 pipeline {  
   environment {
-    registry = "localhost/scratch-ruby"
+    registry = "localhost/scratch-ruby:3.0.0-build-"
     //registryCredential = 'dockerhub'
   }
   agent any  
@@ -8,7 +8,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          docker.build registry + ":$BUILD_NUMBER"
+          docker.build registry + "$BUILD_NUMBER"
         }
       }
     }
