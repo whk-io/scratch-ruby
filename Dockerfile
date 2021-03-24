@@ -1,4 +1,4 @@
-FROM ruby:2.6.5-slim-buster as ruby
+FROM ruby:3.0.0-slim-buster as ruby
 
 ENV TERM=dumb
 
