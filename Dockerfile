@@ -42,7 +42,7 @@ COPY --from=ruby /usr/local/lib/ /usr/local/lib
 COPY --from=ruby /usr/local/bin/ /usr/local/bin
 
 # -- from scratch_helper.rb
-COPY --from=ruby /usr/local/lib/libruby.so.2.6 /usr/local/lib/libruby.so.3.0
+COPY --from=ruby /usr/local/lib/libruby.so.3.0 /usr/local/lib/libruby.so.3.0
 COPY --from=ruby /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/libm.so.6
 COPY --from=ruby /lib/x86_64-linux-gnu/libc.so.6 /lib/x86_64-linux-gnu/libc.so.6
 COPY --from=ruby /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1
