@@ -3,6 +3,6 @@ node {
 
     stage('build') {
         // some block
-        sh """docker build -t scratch-ruby:latest ."""
+        docker.build("scratch-ruby:latest")
     }
 }
